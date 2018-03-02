@@ -1,9 +1,12 @@
-slackin:
-  build: .
-  environment:
-    SLACK_TOKEN: xxxx-xxxxxxxxxx-xxxxxxxxxx-xxxxxxxxxx-xxxxxx
-    SLACK_ORG: yoursubdomain
-    GOOGLE_CAPCHA_SECRET: xxx
-    GOOGLE_CAPCHA_SITEKEY: xxx
-  ports:
-    - "3000:3000"
+version: "3"
+services:
+  slackin:
+    build: .
+    restart: unless-stopped
+    environment:
+      SLACK_TOKEN: xxxx-xxxxxxxxxx-xxxxxxxxxx-xxxxxxxxxx-xxxxxx
+      SLACK_ORG: yoursubdomain
+      GOOGLE_CAPCHA_SECRET: xxx
+      GOOGLE_CAPCHA_SITEKEY: xxx
+    ports:
+      - "3000:3000"
