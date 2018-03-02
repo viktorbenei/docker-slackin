@@ -1,8 +1,17 @@
-FROM node:0.10
+# based on ./slackin/Dockerfile
+FROM node:slim
 
-RUN npm install -g slackin@0.5.1
+ENV PORT 3000
 
-RUN mkdir /app
-WORKDIR /app
-COPY startslackin /app/
+ADD ./slackin /srv/www
+
+WORKDIR /srv/www
+
+RUN npm install --unsafe-perm
+
+COPY startslackin /srv/www/
+
+EXPOSE 3000
+
+# CMD ./bin/slackin --port $PORT $SLACK_SUBDOMAIN $SLACK_API_TOKEN
 CMD ["sh", "startslackin"]
