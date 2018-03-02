@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "***** Starting slackin"
 echo "Version:"
-slackin --version
+./bin/slackin --version
 echo ""
-exec slackin $SLACK_ORG $SLACK_TOKEN
+./bin/slackin $SLACK_ORG $SLACK_TOKEN $GOOGLE_CAPCHA_SECRET $GOOGLE_CAPCHA_SITEKEY
